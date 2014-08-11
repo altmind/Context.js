@@ -21,6 +21,7 @@ var context = context || (function () {
 		options = $.extend({}, options, opts);
 
 		$(document).on('click', 'html', function () {
+			$('.dropdown-context').removeData("contextTarget");
 			$('.dropdown-context').fadeOut(options.fadeSpeed, function(){
 				$('.dropdown-context').css({display:''}).find('.drop-left').removeClass('drop-left');
 			});
@@ -104,6 +105,7 @@ var context = context || (function () {
 			$('.dropdown-context:not(.dropdown-context-sub)').hide();
 
 			$dd = $('#dropdown-' + id);
+            $dd.data('contextTarget', e.target);
 			if (typeof options.above == 'boolean' && options.above) {
 				$dd.addClass('dropdown-context-up').css({
 					top: e.pageY - 20 - $('#dropdown-' + id).height(),

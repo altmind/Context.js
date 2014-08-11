@@ -33,6 +33,10 @@ $(document).ready(function(){
 				$('#donate').submit();
 			}}
 		]},
+		{text: 'Click target is...', action: function(e){
+			var target=$(e.target).closest(".dropdown-context").data("contextTarget");
+			alert($(target).html());
+		}},
 		{text: 'Hmm?', subMenu: [
 			{header: 'Well, thats lovely.'},
 			{text: '2nd Level', subMenu: [
